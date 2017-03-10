@@ -7,7 +7,7 @@
 #include "addmin_main_page.h"
 
 
-//Ææ¹ÖµÄÈ«¾Ö±äÁ¿
+//å¥‡æ€ªçš„å…¨å±€å˜é‡
 char Account[20];
 char Password[20];
 char Property;
@@ -21,18 +21,18 @@ int read_from_file(FILE* pFile, char* account,char* password);
 int Password_judge(char* account, char* password, char property)
 {
 	user_info = property;
-	//ÅĞ¶ÏÕË»§ÊôĞÔ
+	//åˆ¤æ–­è´¦æˆ·å±æ€§
 	switch (property)
 	{
 	case '1': {
 		FILE *pFile = fopen("students_password.txt", "rb+");
 		if (NULL == pFile)
 		{
-			printf_s("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
+			printf_s("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
 			return 0;
 		}
 
-		//²Ù×÷ÎÄ¼şÖ¸Õë£¬¶ÁÈ¡º¯Êı
+		//æ“ä½œæ–‡ä»¶æŒ‡é’ˆï¼Œè¯»å–å‡½æ•°
 		int s = read_from_file(pFile, account, password);
 		return s;
 		break;
@@ -42,11 +42,11 @@ int Password_judge(char* account, char* password, char property)
 		FILE *pFile = fopen("teachers_password.txt", "rb+");
 		if (NULL == pFile)
 		{
-			printf_s("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
+			printf_s("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
 			return 0;
 		}
 
-		//²Ù×÷ÎÄ¼şÖ¸Õë£¬¶ÁÈ¡º¯Êı
+		//æ“ä½œæ–‡ä»¶æŒ‡é’ˆï¼Œè¯»å–å‡½æ•°
 		int s = read_from_file(pFile, account, password);
 		return s;
 		break;
@@ -56,11 +56,11 @@ int Password_judge(char* account, char* password, char property)
 		FILE *pFile = fopen("admin_password.txt", "rb+");
 		if (NULL == pFile)
 		{
-			printf_s("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
+			printf_s("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
 			return 0;
 		}
 
-		//²Ù×÷ÎÄ¼şÖ¸Õë£¬¶ÁÈ¡º¯Êı
+		//æ“ä½œæ–‡ä»¶æŒ‡é’ˆï¼Œè¯»å–å‡½æ•°
 		int s = read_from_file(pFile, account, password);
 		return s;
 		break;
@@ -89,11 +89,11 @@ void Login()
 {	
 	read_account_password_property();
 
-	int s = Password_judge(Account, Password,Property);  //sÓÃ×÷ÃÜÂëÊÇ·ñÕıÈ·µÄÅĞ¶Ï
+	int s = Password_judge(Account, Password,Property);  //sç”¨ä½œå¯†ç æ˜¯å¦æ­£ç¡®çš„åˆ¤æ–­
 	if (s == 0)
 	{
 		SetPos(20,8);
-		printf_s("ÃÜÂë»òÕËºÅ´íÎó£¬ÇëÖØĞÂÊäÈë!");
+		printf_s("ä½ ä¸ªå¼æ¯›ï¼Œæ˜¯å‚»é€¼å—ï¼Ÿè¿™éƒ½èƒ½è¾“é”™ï¼Œä½ éº»ç—¹å¿«ç»™è€å­è¾“å…¥!");
 		read_account_password_property();
 	}
 
@@ -108,7 +108,7 @@ void Login()
 	}
 }
 
-//ÎÄ¼ş¶ÁÈ¡º¯Êı
+//æ–‡ä»¶è¯»å–å‡½æ•°
 int read_from_file(FILE* pFile, char* account, char* password) 
 {
 	while (fgets(filebuf, 30, pFile)) {
@@ -116,7 +116,7 @@ int read_from_file(FILE* pFile, char* account, char* password)
 		char delims[] = "#";
 		char *result = NULL;
 
-		//×Ö·û´®ÇĞ¸î
+		//å­—ç¬¦ä¸²åˆ‡å‰²
 		result = strtok(filebuf, delims);
 		if (strcmp(account, result) == 0) {
 			result = strtok(filebuf, delims);
